@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidebar" data-background-color="white" data-active-color="danger">
+
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a href="#" class="simple-text">
+                        <span class="ti-book"></span> Address book
+                    </a>
+                </div>
+                <ul class="nav">
+                    <li class="active">
+                        <a href="dashboard.html">
+                            <i class="ti-user"></i>
+                            <p>All</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="user.html">
+                            <i class="ti-briefcase"></i>
+                            <p>Work</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="table.html">
+                            <i class="ti-face-smile"></i>
+                            <p>Friends</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="typography.html">
+                            <i class="ti-home"></i>
+                            <p>Family</p>
+                        </a>
+                    </li>
+                    <li><hr /></li>
+                    <li>
+                        <a href="typography.html">
+                            <i class="ti-heart"></i>
+                            <p>Favourites</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input id="search" type="text" class="form-control border-input" placeholder="Search">
+                            </div>
+                        </div>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><button type="submit" class="btn btn-lg btn-info btn-fill btn-wd" data-toggle="modal" data-target="#createContactModal" data-backdrop="false">Add contact</button></li>
+                    </ul>
+                </div>
+            </nav>
+            @RenderBody()
+
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/common")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

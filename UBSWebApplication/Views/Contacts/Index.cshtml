@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@using UBSWebApplication.Core.ViewModels
+@model IEnumerable<UBSWebApplication.Core.ViewModels.ContactViewModel>
+
+@Html.Partial("../Contacts/_Create", new ContactViewModel())
+@Html.Partial("../Contacts/_Edit", new ContactViewModel())
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="content table-responsive table-full-width">
+                        <table id="contactsTable" class="table table-hover">
+                            <thead>
+                            <th></th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Street</th>
+                            <th>Zip</th>
+                            <th>Country</th>
+                            <th>City</th>
+                            </thead>
+                            <tbody>
+                            @foreach (var contact in Model)
+                            {
+                                <tr class='clickable-row' data-id="@(contact.Id)">
+                                    <td id="image@(contact.Id)"><img class="img-circle" src="@contact.Image" height="80" width="80"></td>
+                                    <td id="firstName@(contact.Id)"><b>@contact.FirstName</b></td>
+                                    <td id="lastName@(contact.Id)"><b>@contact.LastName</b></td>
+                                    <td id="street@(contact.Id)">@contact.Street</td>
+                                    <td id="zip@(contact.Id)">@contact.Zip</td>
+                                    <td id="country@(contact.Id)">@contact.Country</td>
+                                    <td id="city@(contact.Id)">@contact.City</td>
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryunob")
+
+    <script type="text/javascript" src="@Url.Content("/Scripts/custom/contacts.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/Scripts/custom/tables.js")"></script>
+}
+
