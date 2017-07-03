@@ -50,7 +50,7 @@ namespace UBSWebApplication.App_Start
 
                 RegisterServices(kernel);
 
-                kernel.Bind(x => x.FromAssembliesInPath(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)).SelectAllClasses().BindDefaultInterface());
+                kernel.Bind(x => x.FromAssembliesInPath(HttpRuntime.BinDirectory).SelectAllClasses().BindDefaultInterface());
 
                 return kernel;
             }

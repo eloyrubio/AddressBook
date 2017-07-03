@@ -246,6 +246,10 @@
       <Project>{868E4FD3-B7C2-4AEA-A18C-4620E2798E10}</Project>
       <Name>UBSWebApplication.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UBSWebApplication.Persistance.EF\UBSWebApplication.Persistance.EF.csproj">
+      <Project>{67b37cda-a412-4ad9-9e36-ee8702a373c3}</Project>
+      <Name>UBSWebApplication.Persistance.EF</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
