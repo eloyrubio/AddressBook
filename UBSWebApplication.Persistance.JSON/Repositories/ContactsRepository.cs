@@ -24,9 +24,11 @@ namespace UBSWebApplication.Persistance.JSON.Repositories
 
             var contacts = JsonConvert.DeserializeObject<IEnumerable<Contact>>(File.ReadAllText(DatabasePath));
 
-            if (query != null)
+            if (!string.IsNullOrWhiteSpace(query))
             {
-                return contacts.Where(c => c.FirstName.ToLower().Contains(query.ToLower()) || c.LastName.ToLower().Contains(query.ToLower())).ToList();
+                var tokens = query.Split(null);
+
+                return contacts.Where(c => tokens.Any(t => c.FirstName.ToLower().Contains(t.ToLower())) || tokens.Any(t => c.LastName.ToLower().Contains(t.ToLower()))).ToList();
             }
 
             return contacts;

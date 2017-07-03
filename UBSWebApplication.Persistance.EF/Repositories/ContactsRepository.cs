@@ -18,9 +18,11 @@ namespace UBSWebApplication.Persistance.EF.Repositories
 
         public IEnumerable<Contact> GetContacts(string query = null)
         {
-            if(query != null)
+            if(!string.IsNullOrWhiteSpace(query))
             {
-                return _context.Contacts.Where(c => c.FirstName.ToLower().Contains(query.ToLower()) || c.LastName.ToLower().Contains(query.ToLower())).ToList();
+                var tokens = query.Split(null);
+             
+                return _context.Contacts.Where(c => tokens.Any(t=> c.FirstName.ToLower().Contains(t.ToLower())) || tokens.Any(t => c.LastName.ToLower().Contains(t.ToLower()))).ToList();
             }
 
             return _context.Contacts.ToList();
